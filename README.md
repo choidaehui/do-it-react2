@@ -1,68 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# do-it-react 스터디 파일
+``` javascript
+      import React, { Component } from 'react';
+      import ChildComponent from './component/ChildComponent';
 
-## Available Scripts
+      // 작성된 컴포넌트를 App.js로 불러오기
+      // import 'MyComponent';의 경우 MyComponent.js > MyComponent.jsx > 파일이 없으면 MyComponent 폴더를 검색 
+      // 해당 폴더 안에 index.js > index.jsx 순서로 파일을 확인하여 임포트 함
+      import TodaysPlan from './component/TodaysPlan';
 
-In the project directory, you can run:
+      class App extends React.Component {
+        render() {
+          const array = [1, 2, 3];
+          const obj = { name: '제목', age: 30 };
+          const node = <h1>노드</h1>;
+          const func = () => { console.log('메시지'); };
+          return (
+            // JSX는 HTML이 아니라 XML 마크업 규칙을 따른다.
+            // 엘리먼트의 시작표시와 < 마침 표시의 />의 짝이 맞아야 한다.
+            // 컴포넌트를 JSX 안에 마크업 형식으로 추가
+            <ChildComponent
+              boolValue={true}
+              numValue={1}
+              arrayValue={array}
+              objValue={obj}
+              nodeValue={node}
+              funcValue={func}
+              // 실무에서는 배열, 객체, 노드, 함수를 변수에 담아 전달
+            />  
+          );
+        }
+      }
 
-### `npm start`
+      export default App;
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+      import React, { Component } from 'react';
+      import BooleanComponent from './component/BooleanComponent';
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+      class App extends React.Component {
+        render() {
+          return (
+            <div>
+              <div><b>지루할 때:</b><BooleanComponent bored /></div>
+              <div><b>즐거울 때:</b><BooleanComponent /></div>
+            </div>
+            // <BooleanComponent bored />는 프로퍼티에 true 전달
+            // <BooleanComponent />는 프로퍼티에 false 전달
+          );
+        }
+      }
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+      export default App;
+```      
