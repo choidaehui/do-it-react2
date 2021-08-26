@@ -1,6 +1,7 @@
 
 
 import React, { Component, PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 // input 컴포넌트 만들기
 class Input extends PureComponent {
