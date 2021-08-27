@@ -19,12 +19,12 @@ class Input extends PureComponent {
   componentDidMount() {
     if(this.props.autoFocus) {
       // autoFocus값이 true일 경우 출력 후 input박스에 자동으로 커서를 배치
-      this.refs.focus();
+      this.ref.focus();
     }
   }
   componentDidUpdate() {
     if(this.props.autoFocus) {
-      this.refs.focus();
+      this.ref.focus();
     }
   }
   setRef(ref) {
