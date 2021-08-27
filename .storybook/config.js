@@ -1,6 +1,7 @@
 
-import { configure } from '@storybook/react';
+import { configure, setAddon } from '@storybook/react';
 import interopRequireDefault from 'babel-runtime/helpers/interopRequireDefault';
+import JSXAddon from 'storybook-addon-jsx';
 
 // 스토리가 자동으로 스토리북에 추가되도록 config.js 설정하기
 function loadStories() {
@@ -18,4 +19,5 @@ function loadStories() {
 
 }
 
+setAddon(JSXAddon);
 configure(loadStories, module);
