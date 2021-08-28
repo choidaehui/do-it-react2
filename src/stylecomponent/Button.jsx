@@ -61,7 +61,7 @@ Button.defaultProps = {
   primary: false,
 };
 
-export default withStyles(({ color, size, unit }) => ({
+export default withStyles(({ color, size, unit, responsive }) => ({
   //  Text 컴포넌트와 동일한 방법으로 크기와 색상을 변경하는 프로퍼티를 추가
   default: {
     // 버튼의 기본 모양을 구성
@@ -73,6 +73,10 @@ export default withStyles(({ color, size, unit }) => ({
     fontSize: size.md,
     padding: unit * 2,
     cursor: 'pointer',
+    [responsive.small]: {
+      width: '100%',
+    },
+    // 미디어 스타일 값 responsive.small을 키로 사용하여 추가 스타일 항목을 하위 객체로 할당
   },
   xlarge: {
     fontSize: size.xg,
