@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import Input from '../component/Input';
 
 // 수행 기능을 작성하기 전에 테스트 코드부터 작성하는 개발방법을 '테스트 위주 개발'이라고 함
@@ -10,10 +10,23 @@ import Input from '../component/Input';
 
 describe('<Input>', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Input name="name" />, div);
-    ReactDOM.unmountComponentAtNode(div);
-    expect(React.isValidElement(<Input name="text_name" />)).toBeTruthy();
+   expect(() => {
+     shallow(<Input name="test_name" />);
+     // shallow() 함수 안에 Input컴포넌트를 직접 입력
+   }).not.toThrow();
+   // jest의 toThrow() 함수를 사용하여 입력 컴포넌트가 출력되는 동안 오류가 발생하는지 겁사하고, 오류가
+   // 발생하지 않으면 테스트를 통과함
+   // toThrow() 함수는 컴포넌트의 출력 오류를 검사
+   // 프로퍼티로 전달받은 콜백 함수를 실행하도록 컴포넌트를 구성했을 때, 콜백 함수를 프로퍼티로 전달하는 과정이
+   // 생략되는 경우에는 에러가 발생
+   // not.toThrow() 함수는 이러한 에러가 나타나는지 검증하는 함수
+  });
+  it('has one element', () => {
+    const wrapper = shallow(<Input name="test_name" />);
+    expect(wrapper.length).toEqual(1);
+    // expect() 함수가 반환한 toEqual() 함수를 사용하여 반환된 객체의 수를 비교
+    expect(wrapper).toHaveLength(1);
+    // expect() 함수가 반환한 toHaveLength() 함수를 사용하여 .length값을 비교
   });
 });
 
